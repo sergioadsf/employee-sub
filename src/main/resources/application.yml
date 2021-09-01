@@ -1,0 +1,19 @@
+micronaut:
+  application:
+    name: employeeSub
+  server:
+    port: 8081
+    cors:
+      enabled: true
+#datasources:
+#  default:
+#    url: jdbc:postgresql://localhost:5432/postgres
+#    driverClassName: org.postgresql.Driver
+#    username: postgres
+#    password: ''
+tracing:
+  jaeger:
+    enabled: true
+    sampler:
+      probability: 0.1
+kafka.bootstrap.servers: localhost:9092
