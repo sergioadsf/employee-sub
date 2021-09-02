@@ -5,12 +5,22 @@ micronaut:
     port: 8081
     cors:
       enabled: true
-#datasources:
-#  default:
-#    url: jdbc:postgresql://localhost:5432/postgres
-#    driverClassName: org.postgresql.Driver
-#    username: postgres
-#    password: ''
+---
+datasources:
+  default:
+    url: jdbc:postgresql://${URL_DB:`localhost`}:5432/${POSTGRES_DB:`conecta`}
+    driverClassName: org.postgresql.Driver
+    username: ${POSTGRES_USER:`postgres`}
+    password: ${POSTGRES_PASSWORD:`postgres`}
+  #    schema-generate: CREATE_DROP
+  #    dialect: POSTGRES
+jpa.default.properties.hibernate.hbm2ddl.auto: none
+---
+flyway:
+  datasources:
+    default:
+      enabled: true
+---
 tracing:
   jaeger:
     enabled: true
